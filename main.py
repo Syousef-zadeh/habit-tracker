@@ -39,15 +39,14 @@ header = {
 
 pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
-today = datetime(year=2021, month=12, day=20)
-
+today = datetime.now()
 pixel_data = {
     "date": today.strftime("%Y%m%d"),
-    "quantity": "19.74",
+    "quantity": input("How many kilometers did you cycle today? "),
 }
 # CREATE A NEW ACTIVITY IN A SPECIFIC DATE IN THE GRAPH
-# response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=header)
-# print(response.text)
+response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=header)
+print(response.text)
 
 update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
 new_pixel_data = {
@@ -62,3 +61,7 @@ delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strfti
 # DELETE THE DATE ON THE GRAPH
 # response = requests.delete(url=delete_endpoint, headers=header)
 # print(response.text)
+
+
+
+# https://pixe.la/v1/users/sheida/graphs/graph1.html
