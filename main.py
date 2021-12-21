@@ -45,6 +45,15 @@ pixel_data = {
     "date": today.strftime("%Y%m%d"),
     "quantity": "19.74",
 }
+# CREATE A NEW ACTIVITY IN A SPECIFIC DATE IN THE GRAPH
+# response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=header)
+# print(response.text)
 
-response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=header)
-print(response.text)
+update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+new_pixel_data = {
+    "quantity": "5.5"
+}
+# UPDATE THE GRAPH
+# response = requests.put(url=update_endpoint, json=new_pixel_data, headers=header)
+# print(response.text)
+
